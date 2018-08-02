@@ -1,0 +1,22 @@
+理解Python并发编程一篇就够了|线程篇
+GIL
+Python（特指CPython）的多线程的代码并不能利用多核的优势，而是通过著名的全局解释锁（GIL）来进行处理的。
+如果是一个计算型的任务，GIL就会让多线程变慢。我们举个计算斐波那契数列的例子：
+profile_thread.py
+
+同步机制
+Python同步Lock、Semaphore、Event实例,
+Lock用来避免访问冲突、
+Semaphore用来控制对共享资源的访问数量、
+Event用来实现进程间同步通信
+
+1. Semaphore（信号量）
+在多线程编程中，为了防止不同的线程同时对一个公用的资源（比如全部变量）进行修改，
+需要进行同时访问的数量（通常是1）的限制。信号量同步基于内部计数器，每调用一次acquire()，计数器减1；
+每调用一次release()，计数器加1.当计数器为0时，acquire()调用被阻塞。
+semophore.py
+
+2. Lock
+3.Condition
+Condition: 主要的方法是wait()，notifyAll()，notify()，
+同时还提供了类似Lock()的acquire()和release()。
