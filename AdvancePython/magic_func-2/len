@@ -1,0 +1,5 @@
+len不简单
+当list对python的原生list,dict,set时，cpython解释器会直接读取长度，不会遍历
+
+补充：
+for 先找类中__iter__,没有再找__getitem__，没有就自己生成迭代器
